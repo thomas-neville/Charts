@@ -1,0 +1,20 @@
+The marketing team would like a donut chart (https://developers.google.com/chart/interactive/docs/gallery/piechart) that shows how each dollar donated to the organization is allocated.
+  - 4 cents is for administrative costs
+  - 16 cents is for fundraising
+  - 36 cents funds youth programs
+  - 44 cents funds adult program
+The colors they would like are: #8AD1C2, #9F8AD1, #D18A99, #BCD18A.
+
+
+The product team would like a visualization that shows students a timeline of how their studies in major area will progress. This will be for students who begin their studies in September of 2018.
+  1. From Sept of 2018 to May of 2019, students will complete general education requirements.
+  2. From June of 2019 to Aug of 2019, students will choose their major.
+  3. From Sept of 2019 to May of 2020, students will complete two courses in their preferred area of study, one per semester.
+  4. From Sept of 2020 to May of 2022, students will complete twelve courses in their preferred area of study, three per semester.
+Build both a timeline visualization (https://developers.google.com/chart/interactive/docs/gallery/timeline) showing phases of study by date, as well as a bar chart (https://developers.google.com/chart/interactive/docs/gallery/barchart) showing how many classes in major area will be completed in each of the eight semesters (fall and spring, 2019 through 2022) of their study.
+
+The colors used for the charts should be shades of blue.
+
+
+
+
