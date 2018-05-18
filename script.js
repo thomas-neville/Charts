@@ -2,7 +2,7 @@ console.log("let's build some charts!");
 
  // Load the Visualization API and the corechart package. 
  // Only has to happen once
-google.charts.load('current', {'packages':['corechart','bar']});
+google.charts.load('current', {'packages':['corechart','bar', 'timeline']});
 
 // For second chart:
 // 1. Set a callback for it (setOnLoadCallback)
@@ -11,8 +11,63 @@ google.charts.load('current', {'packages':['corechart','bar']});
 // 4. Be sure all ballback function use different divs to draw in. Add a new div to HTML for each chart.
 
 // Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart1);
-google.charts.setOnLoadCallback(drawChart2);
+google.charts.setOnLoadCallback(drawDonationChart);
+google.charts.setOnLoadCallback(drawStudyTimeline);
+google.charts.setOnLoadCallback(drawStudyBar);
+
+// Uncomment to draw Charts 1 and 2
+//google.charts.setOnLoadCallback(drawChart1);
+//google.charts.setOnLoadCallback(drawChart2);
+
+function drawStudyTimeline(){
+  var container = document.getElementById('study-timeline');
+  var chart = new google.visualization.Timeline(container);
+  var dataTable = new google.visualization.DataTable();
+
+  dataTable.addColumn({ type: 'string', id: 'Phase of Study' });
+  dataTable.addColumn({ type: 'date', id: 'Start' });
+  dataTable.addColumn({ type: 'date', id: 'End' });
+  dataTable.addRows([
+    ['General Ed', new Date(2018, 8, 1), new Date(2019, 4, 1)],
+    ['Choose Major', new Date(2019, 5, 1), new Date(2019, 7, 1)],
+    ['2 mjr Clss', new Date(2019, 8, 1), new Date(2020, 4, 1)],
+    ['12 mjr Clss', new Date(2020, 8, 1), new Date(2022, 4, 1)]
+  ]);
+
+  chart.draw(dataTable);
+}
+
+function drawStudyBar(){
+  
+}
+
+
+
+function drawDonationChart(){
+  // #donation-chart is the container
+  var data = google.visualization.arrayToDataTable([
+          ['Allocation', 'Dollar Amount'],
+          ['Administrative Cost', 4],
+          ['Fundraising', 16],
+          ['Youth Programs', 36],
+          ['Adult Programs',44]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+          legend: 'right',
+          slices: [
+            {color: '#8AD1C2' },
+            {color: '#9F8AD1'},
+            {color: '#D18A99'},
+            {color: '#BCD18A'}
+          ]
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donation-chart'));
+        chart.draw(data, options);
+}
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
